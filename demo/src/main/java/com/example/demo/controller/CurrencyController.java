@@ -14,7 +14,7 @@ public class CurrencyController {
 
     @GetMapping("/currency")
     String getCurrency(){
-        return "Hello Currency";
+        return "Hello Currency888";
     }
 
     @GetMapping("https://api.apilayer.com/exchangerates_data/latest")
@@ -70,14 +70,23 @@ public class CurrencyController {
 //        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
 //        return re.getHeaders().getFirst("*");
 //    }
+//
+//    @GetMapping("/exchangeRateResponseBody")
+//    @ResponseBody
+//    String getExchangeRateResponseBody() {
+//        String uri = "https://api.exchangerate.host/latest?access_key=SGZliVw2kVfH3lXpOjLvJyXzp5b1iqdB&base=USD&symbols=GBP,JPY,USD";
+//        RestTemplate restTemplate = new RestTemplate();
+//        Rates result = restTemplate.getForObject(uri, Rates.class);
+////        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
+//        return result.getRates();
+//    }
 
-    @GetMapping("/exchangeRateResponseBody")
-    @ResponseBody
-    String getExchangeRateResponseBody() {
-        String uri = "https://api.exchangerate.host/latest?access_key=SGZliVw2kVfH3lXpOjLvJyXzp5b1iqdB&base=USD&symbols=GBP,JPY,USD";
-        RestTemplate restTemplate = new RestTemplate();
-        Rates result = restTemplate.getForObject(uri, Rates.class);
+    @PostMapping("/exchangeRateResponseBody")
+    public String getExchangeRateResponseBody(@RequestBody String bodyContent) {
+//        String uri = "https://api.exchangerate.host/latest?access_key=SGZliVw2kVfH3lXpOjLvJyXzp5b1iqdB&base=USD&symbols=GBP,JPY,USD";
+//        RestTemplate restTemplate = new RestTemplate();
+//        Rates result = restTemplate.getForObject(uri, Rates.class);
 //        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
-        return result.getRates();
+        return "hello" + bodyContent;
     }
 }
