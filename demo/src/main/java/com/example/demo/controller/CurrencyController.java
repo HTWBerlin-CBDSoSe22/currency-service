@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Rates;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -60,13 +61,23 @@ public class CurrencyController {
         return result;
     }
 
+//    @GetMapping("/exchangeRateResponseBody")
+//    @ResponseBody
+//    String getExchangeRateResponseBody() {
+//        String uri = "https://api.exchangerate.host/latest?access_key=SGZliVw2kVfH3lXpOjLvJyXzp5b1iqdB&base=USD&symbols=GBP,JPY,USD";
+//        RestTemplate restTemplate = new RestTemplate();
+//        String result = restTemplate.getForObject(uri, String.class);
+//        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
+//        return re.getHeaders().getFirst("*");
+//    }
+
     @GetMapping("/exchangeRateResponseBody")
     @ResponseBody
     String getExchangeRateResponseBody() {
         String uri = "https://api.exchangerate.host/latest?access_key=SGZliVw2kVfH3lXpOjLvJyXzp5b1iqdB&base=USD&symbols=GBP,JPY,USD";
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
-        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
-        return re.getHeaders().getFirst("*");
+        Rates result = restTemplate.getForObject(uri, Rates.class);
+//        ResponseEntity<String> re = new ResponseEntity<String>(result, HttpStatus.MULTI_STATUS);
+        return result.getRates();
     }
 }
