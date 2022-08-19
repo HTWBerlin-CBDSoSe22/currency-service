@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
     @Bean
     public DirectExchange directExchange(){
-        return new DirectExchange("createCurrency");
+        return new DirectExchange("itemExchange");
     }
 
     @Bean
@@ -29,7 +29,6 @@ public class Config {
                 .with("getExchangeRate");
     }
 
-    // json object in currencyExchangeDto
     @Bean
     public Jackson2JsonMessageConverter producerJackson2MessageConverter() {
         return new Jackson2JsonMessageConverter();

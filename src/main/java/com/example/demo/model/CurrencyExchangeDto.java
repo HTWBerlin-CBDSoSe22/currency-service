@@ -5,6 +5,7 @@ public class CurrencyExchangeDto {
     private String oldCurrency;
     private String newCurrency;
 
+    public CurrencyExchangeDto(){}
     public String getOldCurrency() {
         return oldCurrency;
     }
