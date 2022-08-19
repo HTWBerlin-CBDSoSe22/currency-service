@@ -1,4 +1,4 @@
-package amqp;
+package com.example.demo.amqp;
 
 //import com.example.apigateway.Model.Product.Product;
 //import com.example.apigateway.Model.Product.ProductCreationDto;
