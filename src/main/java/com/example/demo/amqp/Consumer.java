@@ -13,9 +13,14 @@ public class Consumer {
     public String receive(CurrencyExchangeDto currencyExchangeDto) {
         String oldCurrency = currencyExchangeDto.getOldCurrency();
         String newCurrency = currencyExchangeDto.getNewCurrency();
-        System.out.println("received ");
         CurrencyService currencyService = new CurrencyService();
-        String exchangeRate = currencyService.getExchangeRateSpecified(oldCurrency, newCurrency);
-        return exchangeRate;
+        try {
+            String exchangeRate = currencyService.getExchangeRateSpecified(oldCurrency, newCurrency);
+            return exchangeRate;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "invalid currency";
     }
 }
