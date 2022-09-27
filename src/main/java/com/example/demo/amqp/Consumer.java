@@ -1,7 +1,6 @@
 package com.example.demo.amqp;
 
-//import com.example.apigateway.Model.Product.Product;
-//import com.example.apigateway.Model.Product.ProductCreationDto;
+import com.example.demo.exception.CurrencyNotFoundException;
 import com.example.demo.model.CurrencyExchangeDto;
 import com.example.demo.service.CurrencyService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,7 +17,7 @@ public class Consumer {
             String exchangeRate = currencyService.getExchangeRateSpecified(oldCurrency, newCurrency);
             return exchangeRate;
         }
-        catch (Exception e) {
+        catch (CurrencyNotFoundException e) {
             e.printStackTrace();
         }
         return "invalid currency";

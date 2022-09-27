@@ -8,7 +8,6 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//rabbitMQ on local port 15672 for overview of server
 @Configuration
 public class Config {
     @Bean
